@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-const MONGO_URL = 'mongodb://localhost:27017/LibraryTestDB';
-//require('dotenv/config')
+require('dotenv/config')
 
-mongoose.connect(MONGO_URL, {
-  useNewUrlParser: true
+mongoose.connect(process.env.DB_CONN, {
+  useNewUrlParser: true,
 },
   err => {
     if (!err) {
