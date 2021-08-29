@@ -1,0 +1,53 @@
+<h3 style="display: inline-block;">Book List</h3>
+<span style="float: right;">
+  <a class="btn btn-success" href="/seller">Add New</a>&nbsp;<a class="btn btn-dark" href="/seller/soldbooks">Sold
+    Books</a><br>
+</span>
+<table class="table table-striped table-dark table-hover" id="listTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <p>Type something in the input field to search the list for specific items:</p>
+    <input class="form-control" id="myInput" type="text" onkeyup="customSearch()" placeholder="Search..">
+    <br>
+    {{#each list}}
+    <tr class="table-success">
+      <td>{{this.name}}</td>
+      <td>{{this.author}}</td>
+      <td>{{this.price}}</td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="/seller/{{this.id}}">Edit</a>
+        <a class="btn btn-danger btn-sm" href="/seller/delete/{{this.id}}"
+          onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<script>
+  function customSearch() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("listTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>

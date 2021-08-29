@@ -1,0 +1,26 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/seller" method="POST" autocomplete="off">
+  <input type="hidden" name="_id" value="{{seller._id}}">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" style="color: white;" class="form-control bg-dark" name="name" placeholder="name"
+      value="{{seller.name}}">
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input type="text" style="color: white;" class="form-control bg-dark" name="author" placeholder="author"
+      value="{{seller.author}}">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" style="color: white;" class="form-control bg-dark" name="price" placeholder="price"
+      value="{{seller.price}}">
+  </div>
+  <div id="box" class="col-md-6 offset-md-3 text-center">
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Add</button>
+      <a class="btn btn-dark" href="/seller/list">View All</a>
+    </div>
+  </div>
+</form>
