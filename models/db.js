@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
-require('dotenv/config')
+const MONGO_URI = process.env.MONGODB_URI;
 
-mongoose.connect(process.env.DB_CONN, {
+//require('dotenv/config')
+
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
 },
   err => {
