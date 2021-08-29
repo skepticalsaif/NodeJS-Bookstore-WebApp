@@ -1,5 +1,6 @@
 require('./models/db')
 
+const PORT = process.env.PORT
 const express = require('express')
 const path = require('path')
 const handlebars = require('handlebars')
@@ -69,8 +70,8 @@ app.engine('hbs', exphbs({
 
 app.set('view engine', 'hbs')
 
-app.listen(3090, () => {
-  console.log('Server started at http://localhost:3090')
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`)
 })
 
 app.use('/seller', sellerController)
