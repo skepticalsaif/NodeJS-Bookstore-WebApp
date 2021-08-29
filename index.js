@@ -1,6 +1,6 @@
 require('./models/db')
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8090
 const express = require('express')
 const path = require('path')
 const handlebars = require('handlebars')
